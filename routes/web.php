@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +18,8 @@ use Illuminate\Support\Facades\Route;
 $api = '/api';
 
 Route::get('/', function () {
-    return redirect('/api');
-});
-
-Route::get($api, function () {
-    return response()->json([
-        'message' => 'Laravel API',
+    return Inertia::render('index', [
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
     ]);
 });

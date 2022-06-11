@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import Autoprefixer from 'autoprefixer'
+import laravel from 'vite-plugin-laravel'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
+	plugins: [
+        react(),
+		laravel({
+			postcss: [
+				Autoprefixer(),
+			],
+		}),
+	],
     build: {
         manifest: true,
         outDir: 'public/build',
