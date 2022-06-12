@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title inertia>{{ config('app.name', 'Laravel App') }}</title>
         <script type="module">
             window.__vite_plugin_react_preamble_installed__ = true
         </script>
+        @routes
         @production
             @php
                 $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
@@ -19,8 +20,6 @@
         @inertiaHead
     </head>
     <body>
-        <div id="app">
-            @inertia
-        </div>
+        @inertia
     </body>
 </html>

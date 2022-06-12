@@ -9,4 +9,7 @@ class PagesController extends Controller {
     public function home() {
         return Inertia::render('index', []);
     }
+    public function about() {
+        return Inertia::render('about', []);
+    }
 }
