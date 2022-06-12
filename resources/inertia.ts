@@ -4,13 +4,20 @@ import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/inertia-react'
 import { InertiaProgress } from '@inertiajs/progress'
 
+InertiaProgress.init()
+
+// TODO: Fix page typings
+// TODO: Fix hot module replacement
+
 createInertiaApp({
-    page: 'Inertia',
+    page: {
+        url: '/'
+    },
     resolve: async(name) => {
         const name2 = 'index'
-        const page = (await import(`./pages/${name2}`)).default
+        const page = (await import(`./pages/${name2}.tsx`)).default
 
-        console.log(page)
+        // TODO: Figure out why name is undefined
         console.log('Name: ', name)
 
         return page
@@ -19,5 +26,3 @@ createInertiaApp({
         createRoot(el).render(createElement(App, props))
     },
 })
-
-InertiaProgress.init()
