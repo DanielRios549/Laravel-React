@@ -6,22 +6,13 @@ import { InertiaProgress } from '@inertiajs/progress'
 
 InertiaProgress.init()
 
-// TODO: Fix page typings
+const app = document.getElementById('app')
+
 // TODO: Fix hot module replacement
 
 createInertiaApp({
-    page: {
-        url: '/'
-    },
-    resolve: async(name) => {
-        const name2 = 'index'
-        const page = (await import(`./pages/${name2}.tsx`)).default
-
-        // TODO: Figure out why name is undefined
-        console.log('Name: ', name)
-
-        return page
-    },
+    page: app?.dataset.component,
+    resolve: async(name) => (await import(`./pages/${name}.tsx`)).default,
     setup({ el, App, props }) {
         createRoot(el).render(createElement(App, props))
     },
