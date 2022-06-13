@@ -1,5 +1,4 @@
-import Menu from '@/components/Menu'
-import '@/styles/app.scss'
+import Layout from '@/layout/Main'
 
 type Props = {
 
@@ -7,9 +6,8 @@ type Props = {
 
 export default function Home(props: Props) {
     return (
-        <>
-            <Menu/>
-            <p>Home Page</p>
-        </>
+        <Layout>
+            Home Page
+        </Layout>
     )
 }
