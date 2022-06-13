@@ -33,7 +33,7 @@ export default defineConfig(({ command }) => ({
     },
     resolve: {
         alias: {
-            '$components': resolve(__dirname, 'resources/components')
+            '@': resolve(__dirname, 'resources')
         }
     },
     optimizeDeps: {

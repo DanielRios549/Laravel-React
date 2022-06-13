@@ -1,8 +1,8 @@
-import Menu from '$components/Menu'
-import '../styles/app.scss'
+import Menu from '@/components/Menu'
+import '@/styles/app.scss'
 
 type Props = {
-    
+
 }
 
 export default function About(props: Props) {
