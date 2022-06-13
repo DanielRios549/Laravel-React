@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/inertia-react'
 import route from 'ziggy-js'
+import style from './style.module.scss'
 
 export default function Aside() {
     const links = [
@@ -7,7 +8,7 @@ export default function Aside() {
         [route('about'), 'About']
     ]
     return (
-        <aside>
+        <aside className={style.aside}>
             <nav>
                 <ul>
                     {links.map((link, index) => (

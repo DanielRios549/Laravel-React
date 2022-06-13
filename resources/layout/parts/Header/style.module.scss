@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+
+        background-color: var(--highlight);
+        width: var(--menuWidth);
+        height: 100%;
+        color: var(--primary);
+        display: grid;
+        place-items: center;
+    }
+}
