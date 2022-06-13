@@ -12,6 +12,7 @@ const app = document.getElementById('app')
 
 createInertiaApp({
     page: app?.dataset.component,
+    title: (title) => title ? `${title} - Mini CRM` : 'Mini CRM',
     resolve: async(name) => (await import(`./pages/${name}.tsx`)).default,
     setup({ el, App, props }) {
         createRoot(el).render(createElement(App, props))

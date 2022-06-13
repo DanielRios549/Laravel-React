@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title inertia>{{ config('app.name', 'Laravel App') }}</title>
         <script type="module">
             window.__vite_plugin_react_preamble_installed__ = true
         </script>
