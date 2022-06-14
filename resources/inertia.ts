@@ -12,7 +12,18 @@ const app = document.getElementById('app')
 
 createInertiaApp({
     page: app?.dataset.component,
-    resolve: async(name) => (await import(`./pages/${name}.tsx`)).default,
+    resolve: async(name) => {
+        let page = null
+
+        try {
+            page = (await import(`./pages/${name}.tsx`)).default
+        }
+        catch {
+            page = (await import(`./pages/${name}/index.tsx`)).default
+        }
+
+        return page
+    },
     setup({ el, App, props }) {
         createRoot(el).render(createElement(App, props))
     },

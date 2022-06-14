@@ -1,0 +1,21 @@
+.table {
+    $height: 50px;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    width: 100%;
+    border-spacing: 0;
+
+    thead, tbody {
+        height: $height;
+
+        th, td {
+            text-align: left;
+            text-indent: 20px;
+        }
+    }
+    tbody {
+        tr td {
+            border-top: 2px solid var(--primary);
+        }
+    }
+}

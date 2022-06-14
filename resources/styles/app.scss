@@ -12,9 +12,11 @@
         / min-content 1fr
     ;
     > header {
+        background-color: var(--secondary);
         grid-area: header;
     }
     > main {
+        background-color: var(--primary);
         padding: 10px;
         overflow-y: auto;
         grid-area: main;
