@@ -9,7 +9,7 @@
         </script>
         @routes
         @inertiaHead
-        @vite(resources/inertia.ts)
+        @vite(resources/inertia.tsx)
     </head>
     <body>
         @inertia

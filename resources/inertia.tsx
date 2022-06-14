@@ -1,5 +1,5 @@
 
-import { createElement } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/inertia-react'
 import { InertiaProgress } from '@inertiajs/progress'
@@ -25,6 +25,10 @@ createInertiaApp({
         return page
     },
     setup({ el, App, props }) {
-        createRoot(el).render(createElement(App, props))
+        createRoot(el).render(
+            <React.StrictMode>
+                <App {...props}/>
+            </React.StrictMode>
+        )
     },
 })
