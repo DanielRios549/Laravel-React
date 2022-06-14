@@ -1,18 +1,23 @@
+import { Head } from '@inertiajs/inertia-react'
 import Header from './parts/Header'
 import Aside from './parts/Aside'
+import { useConfig } from '@/stores/config'
+import type { PageProps } from '@/types/page'
 import '@/styles/app.scss'
 
-type Props = {
-    children: React.ReactNode
-}
+export default function MainLayout(props: PageProps) {
+    const setConfig = useConfig(state => state.set)
 
-export default function MainLayout({ children }: Props) {
+    const { appName, lang } = props
+    setConfig({ appName, lang })
+
     return (
         <>
             <Header/>
+            <Head title={`${props.title} - ${appName}`}/>
             <Aside/>
             <main>
-                {children}
+                {props.children}
             </main>
         </>
     )

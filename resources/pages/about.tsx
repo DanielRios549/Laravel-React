@@ -1,11 +1,9 @@
-import { Head } from '@inertiajs/inertia-react'
 import Layout from '@/layout/Main'
-import type { PageType } from '@/types/page'
+import type { PageProps } from '@/types/page'
 
-export default function About(props: PageType) {
+export default function About(props: PageProps) {
     return (
-        <Layout>
-            <Head title={props.title}/>
+        <Layout {...props}>
             About Page
         </Layout>
     )
