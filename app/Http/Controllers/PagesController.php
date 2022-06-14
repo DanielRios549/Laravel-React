@@ -25,4 +25,9 @@ class PagesController extends Controller {
             'clients' => $clients
         ]);
     }
+    public function newClient() {
+        return Inertia::render('clients/new', [
+            'title' => 'Create New Client'
+        ]);
+    }
 }

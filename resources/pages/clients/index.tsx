@@ -8,7 +8,7 @@ export default function Clients(props: PageProps) {
 
     return (
         <Layout {...props}>
-            <ListHeader/>
+            <ListHeader title='Clients'/>
             {clients?.length < 1
                 ?
                 <p>No Clients</p>
