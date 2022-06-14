@@ -1,0 +1,33 @@
+.form {
+    position: relative;
+    background-color: var(--secondary);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+
+        legend {
+            height: 50px;
+        }
+        input {
+            border-radius: 3px;
+            border: 2px solid var(--primary);
+            background-color: var(--secondary);
+            width: min(500px, 50%);
+
+            &:focus {
+                outline: 3px solid var(--highlight);
+            }
+        }
+    }
+    button {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}

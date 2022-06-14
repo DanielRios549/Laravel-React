@@ -4,20 +4,4 @@
     align-items: center;
     height: 40px;
     margin-bottom: 10px;
-
-    a {
-        border-radius: 5px;
-        background-color: var(--highlight);
-        color: var(--white);
-        width: 100px;
-        height: 100%;
-        display: grid;
-        place-items: center;
-        transition: all 100ms linear;
-
-        &:hover {
-            background-color: var(--secondary);
-            color: var(--highlight);
-        }
-    }
 }

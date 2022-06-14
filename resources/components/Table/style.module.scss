@@ -6,9 +6,8 @@
     border-spacing: 0;
 
     thead, tbody {
-        height: $height;
-
         th, td {
+            height: $height;
             text-align: left;
             text-indent: 20px;
         }

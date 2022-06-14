@@ -53,10 +53,6 @@ input {
     color: var(--text);
     height: 40px;
     padding: 15px;
-
-    &:focus {
-        outline: 2px solid var(--text);
-    }
 }
 input[type="submit"] {
     cursor: pointer;

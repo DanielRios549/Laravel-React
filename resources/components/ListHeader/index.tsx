@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/inertia-react'
 import route from 'ziggy-js'
+import Button from '@/components/Button'
 import style from './style.module.scss'
 
 type Props = {
@@ -12,7 +13,7 @@ export default function ListHeader(props: Props) {
     return (
         <header className={style.header}>
             <h2>{props.title}</h2>
-            <Link href={link}>Novo</Link>
+            <Button type="link" link={link}>New</Button>
         </header>
     )
 }
