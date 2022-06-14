@@ -5,6 +5,7 @@ import style from './style.module.scss'
 export default function Aside() {
     const links = [
         [route('home'), 'Home'],
+        [route('clients'), 'Clients'],
         [route('about'), 'About']
     ]
     return (
