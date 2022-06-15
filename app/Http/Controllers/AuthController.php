@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Http\Auth\LoginRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller {
     public function login(LoginRequest $request) {
@@ -23,10 +23,10 @@ class AuthController extends Controller {
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password']
+            'password' => Hash::make($data['password'])
         ]);
 
-        return Redirect::back();
+        return redirect()->back();
     }
     public function logout(Request $request) {
         Auth::guard('web')->logout();

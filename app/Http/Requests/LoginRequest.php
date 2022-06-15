@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Auth;
+namespace App\Http\Requests;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
@@ -26,7 +26,7 @@ class LoginRequest extends FormRequest {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'message' => __('Wrong Email Address'),
+                'email' => __('Wrong Email Address'),
             ]);
         }
 
