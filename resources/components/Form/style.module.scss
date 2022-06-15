@@ -5,6 +5,21 @@
     flex-wrap: wrap;
     padding: 20px;
 
+    &.auth {
+        max-width: 350px;
+        margin: 0 auto;
+
+        fieldset {
+            margin-bottom: 40px;
+
+            input {
+                width: 100%;
+            }
+        }
+        button {
+            width: 100%;
+        }
+    }
     fieldset {
         display: flex;
         flex-direction: column;
@@ -25,9 +40,11 @@
             }
         }
     }
-    button {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
+    &:not(.auth) {
+        button {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
     }
 }

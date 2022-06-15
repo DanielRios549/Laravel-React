@@ -7,6 +7,11 @@ use Illuminate\Foundation\Application;
 use Inertia\Inertia;
 
 class PagesController extends Controller {
+    public function login() {
+        return Inertia::render('login', [
+            'title' => 'Login'
+        ]);
+    }
     public function home() {
         return Inertia::render('index', [
             'title' => 'Dashboard'
