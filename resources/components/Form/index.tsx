@@ -19,7 +19,7 @@ export default function NewClient(props: Props) {
     return (
         <form
             className={`${props.type === 'auth' && style.auth} ${style.form}`}
-            action=""
+            action={props.action}
             method="POST"
             onSubmit={submit}>
             {props.children}

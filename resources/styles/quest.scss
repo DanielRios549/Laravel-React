@@ -1,0 +1,14 @@
+@use "./reset";
+@use "./themes";
+
+#app {
+    background-color: var(--highlight);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+        width: min(400px, 50vw);
+    }
+}

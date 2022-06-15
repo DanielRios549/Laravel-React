@@ -16,7 +16,9 @@ use App\Http\Controllers\PagesController;
 */
 
 Route::get('/login', [PagesController::class, 'login'])->name('login')->middleware('guest');
+
 Route::post('/login', [AuthController::class, 'login'])->name('user/login')->middleware('guest');
+Route::post('/signup', [AuthController::class, 'signup'])->name('user/signup')->middleware('guest');
 Route::delete('/logout', [AuthController::class, 'logout'])->name('user/logout');
 
 Route::get('/', [PagesController::class, 'home'])->name('home')->middleware('auth');
