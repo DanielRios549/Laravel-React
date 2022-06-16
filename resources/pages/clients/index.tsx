@@ -15,7 +15,10 @@ export default function Clients(props: PageProps) {
                 :
                 <Table columns={['Name', 'Email']}>
                     {clients?.map(({id, name, email}) => (
-                        <tr key={id}><td>{name}</td><td>{email}</td></tr>
+                        <tr key={id}>
+                            <td>{name}</td>
+                            <td>{email}</td>
+                        </tr>
                     ))}
                 </Table>
             }
