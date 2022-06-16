@@ -21,13 +21,20 @@ class AuthController extends Controller {
     public function signup(Request $request) {
         $data = $request->collect();
 
-        User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
+        $verify = User::where('email', $data['email'])->exists();
 
-        return redirect()->back();
+        if ($verify) {
+            return redirect()->back()->with('error', 'User Already Exists');
+        }
+        else {
+            User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password'])
+            ]);
+
+            return redirect()->back()->with('success', 'User Created');
+        }
     }
     public function logout(Request $request) {
         Auth::guard('web')->logout();

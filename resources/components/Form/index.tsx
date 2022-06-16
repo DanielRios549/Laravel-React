@@ -22,13 +22,15 @@ export default function NewClient(props: Props) {
     }
     return (
         <>
-            {error && <Message text={error} type="error"/>}
-            {success && <Message text={success} type="success"/>}
             <form
                 className={`${props.type === 'auth' && style.auth} ${style.form}`}
                 action={props.action}
                 method="POST"
                 onSubmit={submit}>
+
+                {error && <Message text={error} type="error"/>}
+                {success && <Message text={success} type="success"/>}
+
                 {props.children}
 
                 <Button type="submit">{props.name}</Button>
