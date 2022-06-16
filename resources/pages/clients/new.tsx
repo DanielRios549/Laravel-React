@@ -5,7 +5,7 @@ import type { PageProps } from '@/types/page'
 export default function NewClient(props: PageProps) {
     return (
         <Layout {...props}>
-            <Form>
+            <Form name="Create Client" action="/clients/new">
                 <fieldset>
                     <legend><h2>New Client</h2></legend>
 

@@ -8,8 +8,8 @@ import '@/styles/app.scss'
 export default function MainLayout(props: PageProps) {
     const setConfig = useConfig(state => state.set)
 
-    const { appName, lang } = props
-    setConfig({ appName, lang })
+    const { appName, lang, user } = props
+    setConfig({ appName, lang, user })
 
     return (
         <>

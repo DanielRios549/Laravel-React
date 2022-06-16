@@ -1,8 +1,8 @@
-export type Client = {
+export type User = {
     id: number
     name: string
     email: string
-    image: string
+    email_verified_at: string
     created_at: string
     updtade_at: string
 }

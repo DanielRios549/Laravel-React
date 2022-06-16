@@ -3,7 +3,7 @@ import type { AppProps } from '@/types/page'
 
 type State = {
     config: Partial<AppProps>
-    update: (option: keyof AppProps, value: string) => void
+    update: (option: keyof AppProps, value: any) => void
     set: (config: AppProps) => void
 }
 
