@@ -1,3 +1,4 @@
+import Common from '@/layout/Common'
 import Form from '@/components/Form'
 import type { PageProps } from '@/types/page'
 import '@/styles/quest.scss'
@@ -5,6 +6,7 @@ import '@/styles/quest.scss'
 export default function Login(props: PageProps) {
     return (
         <>
+        <Common {...props}/>
             <Form type="auth" name="Login" action="/login">
                 <fieldset>
                     <legend><h1>Login</h1></legend>

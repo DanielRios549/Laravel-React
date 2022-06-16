@@ -2,13 +2,13 @@ import create from 'zustand'
 import type { AppProps } from '@/types/page'
 
 type State = {
-    config: Partial<AppProps>
+    config: AppProps
     update: (option: keyof AppProps, value: any) => void
     set: (config: AppProps) => void
 }
 
 export const useConfig = create<State>((setState) => ({
-    config: {},
+    config: {} as any,
 
     update: (option, value) => {
         setState((state) => {
