@@ -49,10 +49,17 @@ textarea {
     outline: none;
 }
 input {
-    background-color: var(--primary);
+    border-radius: 3px;
+    border: 2px solid var(--primary);
+    background-color: var(--secondary);
     color: var(--text);
     height: 40px;
     padding: 15px;
+    width: min(500px, 50%);
+
+    &:focus {
+        outline: 3px solid var(--highlight);
+    }
 }
 input[type="submit"] {
     cursor: pointer;

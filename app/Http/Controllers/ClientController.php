@@ -11,4 +11,14 @@ class ClientController extends Controller {
 
         return $clients;
     }
+    public static function addClient(Request $request) {
+        $data = $request->collect();
+
+        Client::create([
+            'name' => $data['name'],
+            'email' => $data['email']
+        ]);
+
+        return redirect()->back();
+    }
 }

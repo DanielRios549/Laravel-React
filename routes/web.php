@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PagesController;
 
 /*
@@ -24,4 +25,6 @@ Route::delete('/logout', [AuthController::class, 'logout'])->name('user/logout')
 Route::get('/', [PagesController::class, 'home'])->name('home')->middleware('auth');
 Route::get('/about', [PagesController::class, 'about'])->name('about')->middleware('auth');
 Route::get('/clients', [PagesController::class, 'clients'])->name('clients')->middleware('auth');
+
 Route::get('/clients/new', [PagesController::class, 'newClient'])->name('clients/new')->middleware('auth');
+Route::post('/clients/new', [ClientController::class, 'addClient'])->name('clients/new')->middleware('auth');
