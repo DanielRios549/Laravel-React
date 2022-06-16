@@ -7,7 +7,7 @@ export default function NewClient(props: PageProps) {
         <Layout {...props}>
             <Form name="Create Client" action="/clients/new">
                 <fieldset>
-                    <legend><h2>New Client</h2></legend>
+                    <legend><h2>Client Info</h2></legend>
 
                     <label htmlFor="name">Name:</label>
                     <input type="text" name="name" id="name"/>

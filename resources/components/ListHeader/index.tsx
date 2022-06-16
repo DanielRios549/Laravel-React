@@ -4,6 +4,7 @@ import style from './style.module.scss'
 
 type Props = {
     title: string
+    filter?: boolean
 }
 
 export default function ListHeader(props: Props) {
@@ -11,7 +12,7 @@ export default function ListHeader(props: Props) {
 
     return (
         <section className={style.header}>
-            <input type="text" placeholder="Filter"/>
+            {props.filter && <input type="text" placeholder="Filter"/>}
             <Button type="link" link={link}>New</Button>
         </section>
     )

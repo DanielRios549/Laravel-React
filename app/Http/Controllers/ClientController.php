@@ -14,11 +14,18 @@ class ClientController extends Controller {
     public static function addClient(Request $request) {
         $data = $request->collect();
 
-        Client::create([
-            'name' => $data['name'],
-            'email' => $data['email']
-        ]);
+        $verify = Client::where('email', $data['email'])->exists();
 
-        return redirect()->back();
+        if ($verify) {
+            return redirect()->back()->with('error', 'Client Already Exists');
+        }
+        else {
+            Client::create([
+                'name' => $data['name'],
+                'email' => $data['email']
+            ]);
+
+            return redirect()->back()->with('success', 'Client Created');
+        }
     }
 }

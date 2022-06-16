@@ -8,13 +8,13 @@ export default function Clients(props: PageProps) {
 
     return (
         <Layout {...props}>
-            <ListHeader title='Clients'/>
+            <ListHeader title='Clients' filter={clients?.length >= 1}/>
             {clients?.length < 1
                 ?
                 <p>No Clients</p>
                 :
                 <Table columns={['Name', 'Email']}>
-                    {clients?.map(({id, name, email}) => (
+                    {clients?.map(({ id, name, email }) => (
                         <tr key={id}>
                             <td>{name}</td>
                             <td>{email}</td>
