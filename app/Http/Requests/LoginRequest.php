@@ -25,9 +25,9 @@ class LoginRequest extends FormRequest {
         if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
-            throw ValidationException::withMessages([
-                'email' => __('Wrong Email Address'),
-            ]);
+            return [
+                'error' => 'Wrong Email or Password'
+            ];
         }
 
         RateLimiter::clear($this->throttleKey());

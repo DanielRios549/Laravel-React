@@ -10,11 +10,20 @@ use Inertia\Inertia;
 
 class AuthController extends Controller {
     public function login(LoginRequest $request) {
-        $request->authenticate();
-        $request->session()->regenerate();
+        $validate = $request->authenticate();
 
-        // FIXME: Needs to reload since redirect does not change main stylesheet
-        return Inertia::location('/');
+        if($validate !== null && $validate['error']) {
+            return redirect()->back()->with([
+                'form' => 'Login',
+                'error' => $validate['error']
+            ]);
+        }
+        else {
+            $request->session()->regenerate();
+
+            // FIXME: Needs to reload since redirect does not change main stylesheet
+            return Inertia::location('/');
+        }
     }
 
     public function signup(Request $request) {
