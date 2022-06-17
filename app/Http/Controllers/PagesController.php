@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\ClientController;
-use Illuminate\Foundation\Application;
+use App\Models\Client;
+use App\Models\User;
 use Inertia\Inertia;
 
 class PagesController extends Controller {
@@ -14,7 +15,11 @@ class PagesController extends Controller {
     }
     public function home() {
         return Inertia::render('index', [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'itemsCount' => [
+                'clients' => Client::all()->count(),
+                'users' => User::all()->count()
+            ]
         ]);
     }
     public function about() {

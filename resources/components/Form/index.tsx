@@ -21,20 +21,18 @@ export default function NewClient(props: Props) {
         Inertia.post(props.action || '', data)
     }
     return (
-        <>
-            <form
-                className={`${props.type === 'auth' && style.auth} ${style.form}`}
-                action={props.action}
-                method="POST"
-                onSubmit={submit}>
+        <form
+            className={`${props.type === 'auth' && style.auth} ${style.form}`}
+            action={props.action}
+            method="POST"
+            onSubmit={submit}>
 
-                {error && <Message text={error} type="error"/>}
-                {success && <Message text={success} type="success"/>}
+            {error && <Message text={error} type="error"/>}
+            {success && <Message text={success} type="success"/>}
 
-                {props.children}
+            {props.children}
 
-                <Button type="submit">{props.name}</Button>
-            </form>
-        </>
+            <Button type="submit">{props.name}</Button>
+        </form>
     )
 }

@@ -20,6 +20,12 @@
         padding: 10px;
         overflow-y: auto;
         grid-area: main;
+
+        > .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     }
     > aside {
         grid-area: aside;
