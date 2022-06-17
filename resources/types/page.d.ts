@@ -12,8 +12,9 @@ export interface AppProps {
 
 export interface PageProps extends AppProps {
     title: string
+    children: React.ReactNode
     clients?: Client[]
+    users?: User[]
     items?: Items[]
     itemsCount?: ItemsCount
-    children: React.ReactNode
 }

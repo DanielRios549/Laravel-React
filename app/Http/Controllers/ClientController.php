@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientController extends Controller {
-    public static function getClients() {
-        $clients = Client::all();
-
-        return $clients;
+    public static function count() {
+        return Client::all()->count();
     }
-    public static function addClient(Request $request) {
+
+    public static function all() {
+        return Client::all();
+    }
+
+    public static function add(Request $request) {
         $data = $request->collect();
 
         $verify = Client::where('email', $data['email'])->exists();
