@@ -1,4 +1,5 @@
 import { Inertia } from '@inertiajs/inertia'
+import { usePage } from '@inertiajs/inertia-react'
 import { useConfig } from '@/stores/config'
 import Button from '@/components/Button'
 import Message from '@/components/Message'
@@ -12,7 +13,12 @@ type Props = {
 }
 
 export default function NewClient(props: Props) {
-    const { error, success } = useConfig(({config}) => config.message)
+    const { error, success, form } = useConfig(({config}) => config.message)
+    const { url } = usePage()
+
+    // Used in pages where two or more form are displayed
+    // At this point, only in login page
+    const explicitForm = (url === '/login' && form) ? form === props.name : true
 
     const submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -27,8 +33,8 @@ export default function NewClient(props: Props) {
             method="POST"
             onSubmit={submit}>
 
-            {error && <Message text={error} type="error"/>}
-            {success && <Message text={success} type="success"/>}
+            {(explicitForm && error) && <Message text={error} type="error"/>}
+            {(explicitForm && success) && <Message text={success} type="success"/>}
 
             {props.children}
 

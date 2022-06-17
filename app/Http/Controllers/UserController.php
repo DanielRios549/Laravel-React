@@ -20,7 +20,10 @@ class UserController extends Controller {
         $verify = User::where('email', $data['email'])->exists();
 
         if ($verify) {
-            return redirect()->back()->with('error', 'User Already Exists');
+            return redirect()->back()->with([
+                'form' => 'Sign Up',
+                'error' => 'User Already Exists'
+            ]);
         }
         else {
             User::create([
@@ -29,7 +32,10 @@ class UserController extends Controller {
                 'password' => Hash::make($data['password'])
             ]);
 
-            return redirect()->back()->with('success', 'User Created');
+            return redirect()->back()->with([
+                'form' => 'Sign Up',
+                'success' => 'User Created'
+            ]);
         }
     }
 }
