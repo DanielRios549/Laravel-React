@@ -37,7 +37,7 @@ class ClientController extends Controller {
 
         if(!$validate) {
             return [
-                'error' => 'User Does not exists'
+                'error' => 'Client does not exists'
             ];
         }
 
@@ -48,7 +48,7 @@ class ClientController extends Controller {
         $check = $this::check($items['id']);
 
         if ($check && $check['error']) {
-            return redirect()->back()->with('error', 'Something went wrong.');
+            return redirect()->back()->with($check);
         }
 
         Client::where('id', $items['id'])->update([
@@ -56,6 +56,6 @@ class ClientController extends Controller {
             'email' => $items['email']
         ]);
 
-        return redirect()->back()->with('success', 'User Edited Successfully');
+        return redirect()->back()->with('success', 'Client Edited Successfully');
     }
 }

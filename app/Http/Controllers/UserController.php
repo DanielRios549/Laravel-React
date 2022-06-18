@@ -15,6 +15,18 @@ class UserController extends Controller {
         return User::all();
     }
 
+    public static function check(String $id) {
+        $validate = User::where('id', $id)->get()->first();
+
+        if(!$validate) {
+            return [
+                'error' => 'User does not exists'
+            ];
+        }
+
+        return $validate;
+    }
+
     public static function add(Request $request) {
         $data = $request->collect();
         $verify = User::where('email', $data['email'])->exists();
@@ -37,5 +49,26 @@ class UserController extends Controller {
                 'success' => 'User Created'
             ]);
         }
+    }
+
+    public function edit(Request $items) {
+        $check = $this::check($items['id']);
+
+        if ($check && $check['error']) {
+            return redirect()->back()->with($check);
+        }
+
+        $update = [
+            'name' => $items['name'],
+            'email' => $items['email'],
+        ];
+
+        if ($items['password']) {
+            $update['password'] = Hash::make($items['password']);
+        }
+
+        User::where('id', $items['id'])->update($update);
+
+        return redirect()->back()->with('success', 'User Edited Successfully');
     }
 }

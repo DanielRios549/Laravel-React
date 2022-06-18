@@ -66,9 +66,12 @@ class PagesController extends Controller {
         ]);
     }
 
-    public function editUser() {
+    public function editUser($request) {
+        $data = UserController::check($request);
+
         return Inertia::render('users/edit', [
-            'title' => 'Edit User'
+            'title' => 'Edit User',
+            'data' => $data
         ]);
     }
 }
