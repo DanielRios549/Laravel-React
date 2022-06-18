@@ -30,6 +30,9 @@ Route::get('/users', [PagesController::class, 'users'])->name('users')->middlewa
 
 Route::get('/clients/new', [PagesController::class, 'newClient'])->name('clients/new')->middleware('auth');
 Route::post('/clients/new', [ClientController::class, 'add'])->name('clients/add')->middleware('auth');
+Route::get('/clients/{client}', [PagesController::class, 'editClient'])->name('clients/edit')->middleware('auth');
+Route::post('/clients/{client}', [ClientController::class, 'edit'])->name('clients/edit')->middleware('auth');
 
 Route::get('/users/new', [PagesController::class, 'newUser'])->name('users/new')->middleware('auth');
 Route::post('/users/new', [UserController::class, 'add'])->name('users/add')->middleware('auth');
+Route::get('/users/{user}', [PagesController::class, 'editUser'])->name('users/edit')->middleware('auth');

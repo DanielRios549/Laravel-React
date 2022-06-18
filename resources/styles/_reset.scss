@@ -22,8 +22,9 @@ li {
     align-items: center;
 }
 a {
-    display: block;
+    display: flex;
     text-decoration: none;
+    align-items: center;
     color: var(--text);
     height: 100%;
     width: 100%;

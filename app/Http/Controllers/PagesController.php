@@ -42,6 +42,15 @@ class PagesController extends Controller {
         ]);
     }
 
+    public function editClient($request) {
+        $data = ClientController::check($request);
+
+        return Inertia::render('clients/edit', [
+            'title' => 'Edit Client',
+            'data' => $data
+        ]);
+    }
+
     public function users() {
         $users = UserController::all();
 
@@ -54,6 +63,12 @@ class PagesController extends Controller {
     public function newUser() {
         return Inertia::render('users/new', [
             'title' => 'Create New User'
+        ]);
+    }
+
+    public function editUser() {
+        return Inertia::render('users/edit', [
+            'title' => 'Edit User'
         ]);
     }
 }

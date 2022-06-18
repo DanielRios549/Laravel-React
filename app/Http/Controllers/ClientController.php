@@ -31,4 +31,31 @@ class ClientController extends Controller {
             return redirect()->back()->with('success', 'Client Created');
         }
     }
+
+    public static function check(String $id) {
+        $validate = Client::where('id', $id)->get()->first();
+
+        if(!$validate) {
+            return [
+                'error' => 'User Does not exists'
+            ];
+        }
+
+        return $validate;
+    }
+
+    public function edit(Request $items) {
+        $check = $this::check($items['id']);
+
+        if ($check && $check['error']) {
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
+
+        Client::where('id', $items['id'])->update([
+            'name' => $items['name'],
+            'email' => $items['email']
+        ]);
+
+        return redirect()->back()->with('success', 'User Edited Successfully');
+    }
 }
