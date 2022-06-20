@@ -10,8 +10,20 @@ class ClientController extends Controller {
         return Client::all()->count();
     }
 
-    public static function all() {
-        return Client::all();
+    public static function all(String $filter) {
+        $get = [];
+
+        if ($filter === '') {
+            $get = Client::all();
+        }
+        else {
+            $get = Client::where('name', 'like', "%$filter%")
+                ->orWhere('email', 'like', "%$filter%")
+                ->get()
+            ;
+        }
+
+        return $get;
     }
 
     public static function add(Request $request) {

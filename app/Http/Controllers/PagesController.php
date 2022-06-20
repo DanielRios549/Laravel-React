@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class PagesController extends Controller {
@@ -27,8 +28,9 @@ class PagesController extends Controller {
         ]);
     }
 
-    public function clients() {
-        $clients = ClientController::all();
+    public function clients(Request $request) {
+        $param = $request::input('filter') || '';
+        $clients = ClientController::all($param);
 
         return Inertia::render('clients', [
             'title' => 'List Clients',
