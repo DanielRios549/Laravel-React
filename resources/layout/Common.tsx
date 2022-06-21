@@ -1,5 +1,5 @@
-import { useConfig } from '@/stores/config'
-import type { PageProps } from '@/types/page'
+import { useConfig } from '$/stores/config'
+import type { PageProps } from '$/types/page'
 
 export default function Common({ appName, lang, user, message }: PageProps) {
     const setConfig = useConfig(state => state.set)

@@ -1,5 +1,5 @@
 import create from 'zustand'
-import type { AppProps } from '@/types/page'
+import type { AppProps } from '$/types/page'
 
 type State = {
     config: AppProps

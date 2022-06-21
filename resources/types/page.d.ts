@@ -1,7 +1,7 @@
-import type { Items, ItemsCount } from '@/types/items'
-import type { Client } from '@/types/client'
-import type { User } from '@/types/user'
-import type { Message } from '@/types/message'
+import type { Items, ItemsCount } from '$/types/items'
+import type { Client } from '$/types/client'
+import type { User } from '$/types/user'
+import type { Message } from '$/types/message'
 
 export interface AppProps {
     appName: string

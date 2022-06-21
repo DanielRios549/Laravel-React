@@ -1,4 +1,4 @@
-import type { Message as MessageType } from '@/types/message'
+import type { Message as MessageType } from '$/types/message'
 import style from './style.module.scss'
 
 type Props = {

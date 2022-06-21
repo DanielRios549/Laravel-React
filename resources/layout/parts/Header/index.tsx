@@ -1,7 +1,7 @@
 import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-react'
 import route from 'ziggy-js'
-import { useConfig } from '@/stores/config'
+import { useConfig } from '$/stores/config'
 import style from './style.module.scss'
 
 export default function Header() {

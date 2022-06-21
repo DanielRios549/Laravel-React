@@ -1,6 +1,6 @@
-import Layout from '@/layout/Main'
-import Form from '@/components/Form'
-import type { PageProps } from '@/types/page'
+import Layout from '$/layout/Main'
+import Form from '$/components/Form'
+import type { PageProps } from '$/types/page'
 
 export default function NewUser(props: PageProps) {
     return (

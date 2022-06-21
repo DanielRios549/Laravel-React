@@ -19,7 +19,7 @@
         "noEmit": true,
         "jsx": "react-jsx",
         "paths": {
-            "@/*": ["resources/*"]
+            "$/*": ["resources/*"]
         }
     },
     "include": ["resources/**/*.ts", "resources/**/*.tsx"],

@@ -1,6 +1,6 @@
-import Layout from '@/layout/Main'
-import Card from '@/components/Card'
-import type { PageProps } from '@/types/page'
+import Layout from '$/layout/Main'
+import Card from '$/components/Card'
+import type { PageProps } from '$/types/page'
 
 export default function Home(props: PageProps) {
     const count = props.itemsCount

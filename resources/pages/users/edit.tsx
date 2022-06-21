@@ -1,7 +1,7 @@
-import Layout from '@/layout/Main'
-import Form from '@/components/Form'
-import type { PageProps } from '@/types/page'
-import type { User } from '@/types/user'
+import Layout from '$/layout/Main'
+import Form from '$/components/Form'
+import type { PageProps } from '$/types/page'
+import type { User } from '$/types/user'
 
 export default function EditUser(props: PageProps) {
     const { id, name, email } = props.data as User

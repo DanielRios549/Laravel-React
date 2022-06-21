@@ -1,8 +1,7 @@
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy-js'
-import Button from '@/components/Button'
+import Button from '$/components/Button'
 import style from './style.module.scss'
-import { usePage } from '@inertiajs/inertia-react'
 
 type Props = {
     title: string
@@ -27,8 +26,8 @@ export default function ListHeader(props: Props) {
 
     return (
         <section className={style.header}>
-            <input type="text"
-                autoFocus={search != ''}
+            <input type="texta"
+                autoFocus
                 placeholder="Filter"
                 value={search}
                 onChange={filter}

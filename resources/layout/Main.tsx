@@ -1,9 +1,9 @@
 import { Head } from '@inertiajs/inertia-react'
-import Common from '@/layout/Common'
+import Common from '$/layout/Common'
 import Header from './parts/Header'
 import Aside from './parts/Aside'
-import type { PageProps } from '@/types/page'
-import '@/styles/app.scss'
+import type { PageProps } from '$/types/page'
+import '$/styles/app.scss'
 
 export default function MainLayout(props: PageProps) {
     return (

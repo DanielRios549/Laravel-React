@@ -32,7 +32,7 @@ export default defineConfig(({ command }) => ({
     },
     resolve: {
         alias: {
-            '@': resolve(__dirname, 'resources')
+            '$': resolve(__dirname, 'resources')
         }
     },
     optimizeDeps: {

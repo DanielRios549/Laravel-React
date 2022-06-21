@@ -1,8 +1,8 @@
 import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-react'
-import { useConfig } from '@/stores/config'
-import Button from '@/components/Button'
-import Message from '@/components/Message'
+import { useConfig } from '$/stores/config'
+import Button from '$/components/Button'
+import Message from '$/components/Message'
 import style from './style.module.scss'
 
 type Props = {

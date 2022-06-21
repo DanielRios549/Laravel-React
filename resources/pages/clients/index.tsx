@@ -1,8 +1,8 @@
 import { Link } from '@inertiajs/inertia-react'
-import Layout from '@/layout/Main'
-import Table from '@/components/Table'
-import ListHeader from '@/components/ListHeader'
-import type { PageProps } from '@/types/page'
+import Layout from '$/layout/Main'
+import Table from '$/components/Table'
+import ListHeader from '$/components/ListHeader'
+import type { PageProps } from '$/types/page'
 
 export default function Clients(props: PageProps) {
     const clients = props.clients || []
