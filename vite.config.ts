@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-// import Autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 
 export default defineConfig(({ command }) => ({
