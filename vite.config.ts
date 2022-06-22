@@ -1,10 +1,33 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import svg from 'vite-plugin-svgr'
+import autoprefixer from 'autoprefixer'
+import custommedia from 'postcss-custom-media'
+import mediaminmax from 'postcss-media-minmax'
 import { resolve } from 'path'
 
 export default defineConfig(({ command }) => ({
+    css: {
+        postcss: {
+            plugins: [
+                autoprefixer(),
+                custommedia(),
+                mediaminmax()
+            ]
+        }
+    },
 	plugins: [
         react(),
+        svg({
+            exportAsDefault: true,
+            svgrOptions: {
+                svgo: true,
+                svgoConfig: {
+                    multipass: true,
+                    full: true
+                }
+            }
+        }),
         {
             name: 'blade',
             handleHotUpdate({ file, server }) {

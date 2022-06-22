@@ -4,7 +4,11 @@
     background-color: var(--secondary);
     width: 100%;
     border-spacing: 0;
+    overflow: hidden;
 
+    %transition {
+        transition: all 100ms linear;
+    }
     thead, tbody {
         th, td {
             height: $height;
@@ -15,6 +19,20 @@
     tbody {
         tr td {
             border-top: 2px solid var(--primary);
+        }
+        tr {
+            @extend %transition;
+
+            &:hover {
+                background-color: var(--highlight);
+
+                a {
+                    color: var(--white);
+                }
+            }
+            a {
+                @extend %transition;
+            }
         }
     }
 }
