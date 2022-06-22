@@ -1,8 +1,17 @@
+@use "./breakpoints";
 @use "./reset";
 @use "./themes";
 
 :root {
-    --menuWidth: 300px;
+    @media (--desktop) {
+        --menuWidth: 300px;
+    }
+    @media (--tablet) {
+        --menuWidth: 80px;
+    }
+    @media (--mobile) {
+        --menuWidth: 0;
+    }
 }
 #app {
     display: grid;
