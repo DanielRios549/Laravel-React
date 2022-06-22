@@ -1,34 +1,122 @@
 .aside {
-    width: var(--menuWidth);
     background-color: var(--highlight);
+    display: flex;
+    flex-direction: column;
 
+    %transition {
+        transition: width 200ms ease;
+    }
+    @media (--mobile) {
+        background-color: transparent;
+    }
+    button {
+        background-color: var(--highlight);
+        width: 80px;
+        height: 60px;
+        z-index: 12;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @extend %transition;
+
+        @media (--touch) {
+            overflow-x: hidden;
+
+            &:global(.open) {
+                width: var(--menuWidth);
+                justify-content: flex-end;
+                padding-right: 10px;
+
+                + nav {
+                    background-color: var(--highlight);
+                    width: var(--menuWidth);
+
+                    ul li {
+                        width: 100%;
+                        padding-left: 30px;
+                    }
+                }
+            }
+        }
+        @media (--desktop) {
+            display: none;
+        }
+        @media (--mobile) {
+            background-color: var(--secondary);
+
+            svg path {
+                fill: var(--text) !important;
+            }
+        }
+        @media (--tablet) {
+            svg path {
+                fill: var(--primary) !important;
+            }
+        }
+    }
     nav {
-        position: relative;
-        top: 50px;
+        width: var(--menuWidth);
+        @extend %transition;
 
+        @media (--tablet) {
+            width: 80px;
+        }
+        @media (--mobile) {
+            width: 0;
+            overflow-x: hidden;
+        }
         ul {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 10px;
 
             li {
                 height: 40px;
+                width: 100%;
 
+                @media (--tablet) {
+                    width: 32px;
+                    overflow-x: hidden;
+                }
                 &.active {
                     a {
-                        color: var(--text2);
+                        color: var(--text2) !important;
+
+                        svg path {
+                            fill: var(--text2) !important;
+                        }
+                    }
+                }
+                &:not(.active) {
+                    a svg path {
+                        fill: var(--white) !important;
                     }
                 }
                 a {
                     display: flex;
                     align-items: center;
-                    text-indent: 70px;
-                    color: var(--primary);
                     flex-grow: 1;
+                    gap: 20px;
+                    color: var(--primary);
                     transition: color 200ms linear;
 
+                    @media (--desktop) {
+                        padding-left: 70px;
+                    }
                     &:hover {
                         color: var(--text2);
+
+                        svg {
+                            path {
+                                fill: var(--text2) !important;
+                                transition: fill 200ms linear;
+                            }
+                        }
+                    }
+                    svg {
+                        flex-shrink: 0;
+                        --size: 32px;
                     }
                 }
             }

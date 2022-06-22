@@ -14,8 +14,13 @@
         }
         h1 {
             background-color: var(--highlight);
-            width: var(--menuWidth);
             color: var(--primary);
+            width: var(--menuWidth);
+
+            @media (--touch) {
+                background-color: var(--secondary);
+                color: var(--text);
+            }
         }
     }
     section {

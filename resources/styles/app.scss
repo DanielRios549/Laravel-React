@@ -3,15 +3,7 @@
 @use "./themes";
 
 :root {
-    @media (--desktop) {
-        --menuWidth: 300px;
-    }
-    @media (--tablet) {
-        --menuWidth: 80px;
-    }
-    @media (--mobile) {
-        --menuWidth: 0;
-    }
+    --menuWidth: 300px;
 }
 #app {
     display: grid;
@@ -20,6 +12,14 @@
         "aside main" calc(100vh - 60px)
         / min-content 1fr
     ;
+
+    @media (--touch) {
+        grid-template:
+            "aside header" 60px
+            "aside main" calc(100vh - 60px)
+            / min-content 1fr
+        ;
+    }
     > header {
         background-color: var(--secondary);
         grid-area: header;
