@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "postcss-custom-media": "^8.0.2",
+    "postcss-custom-selectors": "^6.0.3",
     "postcss-media-minmax": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

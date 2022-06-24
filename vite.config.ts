@@ -4,15 +4,15 @@ import svg from 'vite-plugin-svgr'
 import autoprefixer from 'autoprefixer'
 import custommedia from 'postcss-custom-media'
 import mediaminmax from 'postcss-media-minmax'
+import customselector from 'postcss-custom-selectors'
 import { resolve } from 'path'
 
 export default defineConfig(({ command }) => ({
     css: {
         postcss: {
             plugins: [
-                autoprefixer(),
-                custommedia(),
-                mediaminmax()
+                autoprefixer(), custommedia(),
+                mediaminmax(), customselector()
             ]
         }
     },
