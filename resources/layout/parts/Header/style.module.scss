@@ -9,18 +9,9 @@
         gap: 10px;
 
         > * {
-            display: grid;
-            place-items: center;
-        }
-        h1 {
-            background-color: var(--highlight);
-            color: var(--primary);
-            width: var(--menuWidth);
-
-            @media (--touch) {
-                background-color: var(--secondary);
-                color: var(--text);
-            }
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
         }
     }
     section {

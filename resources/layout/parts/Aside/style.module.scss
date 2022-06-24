@@ -2,6 +2,7 @@
     background-color: var(--highlight);
     display: flex;
     flex-direction: column;
+    $spaceLeft: 25px;
 
     %transition {
         transition: width 200ms ease;
@@ -9,56 +10,90 @@
     @media (--mobile) {
         background-color: transparent;
     }
-    button {
-        background-color: var(--highlight);
-        width: 80px;
-        height: 60px;
-        z-index: 12;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @extend %transition;
+    @media (--touch) {
+        &:not(:global(.open)) {
+            h1 {
+                display: none;
+            }
+        }
+        &:global(.open) {
+            header {
+                background-color: var(--highlight);
 
-        @media (--touch) {
-            overflow-x: hidden;
-
-            &:global(.open) {
-                width: var(--menuWidth);
-                justify-content: flex-end;
-                padding-right: 10px;
-
-                + nav {
+                button {
                     background-color: var(--highlight);
-                    width: var(--menuWidth);
+                    justify-content: flex-end;
 
-                    ul li {
-                        width: 100%;
-                        padding-left: 30px;
+                    svg path {
+                        fill: var(--primary) !important;
+                    }
+                }
+            }
+            nav {
+                background-color: var(--highlight);
+                width: var(--menuWidth);
+                justify-content: flex-start;
+
+                ul li {
+                    width: 100%;
+
+                    a {
+                        padding-left: $spaceLeft;
                     }
                 }
             }
         }
-        @media (--desktop) {
-            display: none;
-        }
-        @media (--mobile) {
-            background-color: var(--secondary);
+    }
+    header {
+        z-index: 12;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow-x: hidden;
+        @extend %transition;
 
-            svg path {
-                fill: var(--text) !important;
-            }
+        @media (--desktop) {
+            height: 60px;
+            justify-content: flex-start;
         }
-        @media (--tablet) {
-            svg path {
-                fill: var(--primary) !important;
+        > * {
+            flex-shrink: 0;
+        }
+        h1 {
+            color: var(--primary);
+            text-indent: $spaceLeft;
+        }
+        button {
+            background-color: var(--highlight);
+            width: 80px;
+            height: 60px;
+
+            @media (--desktop) {
+                display: none;
+            }
+            @media (--mobile) {
+                background-color: var(--secondary);
+
+                svg path {
+                    fill: var(--text) !important;
+                }
+            }
+            @media (--tablet) {
+                svg path {
+                    fill: var(--primary) !important;
+                }
             }
         }
     }
     nav {
+        display: flex;
+        justify-content: flex-start;
+        flex-grow: 1;
         width: var(--menuWidth);
         @extend %transition;
 
         @media (--tablet) {
+            justify-content: center;
             width: 80px;
         }
         @media (--mobile) {
@@ -70,6 +105,7 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            width: 100%;
 
             li {
                 height: 40px;
@@ -102,7 +138,7 @@
                     transition: color 200ms linear;
 
                     @media (--desktop) {
-                        padding-left: 70px;
+                        padding-left: $spaceLeft;
                     }
                     &:hover {
                         color: var(--text2);

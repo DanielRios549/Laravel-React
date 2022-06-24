@@ -15,7 +15,6 @@ export default function Header() {
     return (
         <header className={style.header}>
             <header>
-                <h1>Mini CRM</h1>
                 <h2>{title}</h2>
             </header>
             <section>
