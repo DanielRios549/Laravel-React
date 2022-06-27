@@ -71,4 +71,17 @@ class UserController extends Controller {
 
         return redirect()->back()->with('success', 'User Edited Successfully');
     }
+
+    public function remove(String $id) {
+        $client = UserController::check($id);
+
+        if ($client && $client['error']) {
+            return redirect()->back()->with('error', 'user does not exists.');
+        }
+        else {
+            User::where('id', $id)->delete();
+        }
+
+        return redirect('/users');
+    }
 }

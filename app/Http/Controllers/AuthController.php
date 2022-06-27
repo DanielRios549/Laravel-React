@@ -12,7 +12,7 @@ class AuthController extends Controller {
     public function login(LoginRequest $request) {
         $validate = $request->authenticate();
 
-        if($validate !== null && $validate['error']) {
+        if($validate && $validate['error']) {
             return redirect()->back()->with([
                 'form' => 'Login',
                 'error' => $validate['error']

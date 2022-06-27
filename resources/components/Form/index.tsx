@@ -9,6 +9,7 @@ type Props = {
     name?: string
     action: string
     type?: 'add' | 'auth'
+    delete?: string
     children: React.ReactNode
 }
 
@@ -26,6 +27,13 @@ export default function NewClient(props: Props) {
 
         Inertia.post(props.action || '', data)
     }
+
+    const remove = () => {
+        const confirmation = window.confirm('Continue? ')
+
+        confirmation && Inertia.delete(props.delete || '')
+    }
+
     return (
         <form
             className={`${props.type === 'auth' && style.auth} ${style.form}`}
@@ -38,7 +46,10 @@ export default function NewClient(props: Props) {
 
             {props.children}
 
-            <Button type="submit">{props.name}</Button>
+            <fieldset>
+                {props.delete && <Button type="reset" action={remove}>Delete</Button>}
+                <Button type="submit">{props.name}</Button>
+            </fieldset>
         </form>
     )
 }

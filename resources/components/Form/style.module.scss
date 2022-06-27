@@ -22,16 +22,18 @@
         }
     }
     &:not(.auth) {
-        button {
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
+        fieldset:last-child {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: row;
         }
     }
     fieldset {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: max(600px, 50%);
         gap: 20px;
 
         legend {

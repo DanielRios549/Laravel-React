@@ -11,4 +11,12 @@
     &:hover {
         background-color: var(--color3);
     }
+    &[type="reset"] {
+        background-color: transparent;
+        color: var(--error);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

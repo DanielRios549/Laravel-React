@@ -8,18 +8,23 @@ export default function NewClient(props: PageProps) {
 
     return (
         <Layout {...props}>
-            <Form name="Edit User" action="/clients/edit">
-                <fieldset>
-                    <legend><h2>Client Info</h2></legend>
-                    <input type="text" name="id" value={id} readOnly hidden/>
+            {name
+                ?
+                <Form name="Edit User" action="/clients/edit" delete={`/clients/remove/${id}`}>
+                    <fieldset>
+                        <legend><h2>Client Info</h2></legend>
+                        <input type="text" name="id" value={id} readOnly hidden/>
 
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" id="name" defaultValue={name}/>
+                        <label htmlFor="name">Name:</label>
+                        <input type="text" name="name" id="name" defaultValue={name}/>
 
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" id="email" defaultValue={email}/>
-                </fieldset>
-            </Form>
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" name="email" id="email" defaultValue={email}/>
+                    </fieldset>
+                </Form>
+                :
+                <span>Client Does not exists.</span>
+        }
         </Layout>
     )
 }

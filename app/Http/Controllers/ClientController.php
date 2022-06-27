@@ -70,4 +70,17 @@ class ClientController extends Controller {
 
         return redirect()->back()->with('success', 'Client Edited Successfully');
     }
+
+    public function remove(String $id) {
+        $client = ClientController::check($id);
+
+        if ($client && $client['error']) {
+            return redirect()->back()->with('error', 'Client does not exists.');
+        }
+        else {
+            Client::where('id', $id)->delete();
+        }
+
+        return redirect('/clients');
+    }
 }
