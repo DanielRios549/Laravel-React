@@ -3,11 +3,11 @@
     height: 150px;
     width: 280px;
     padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+    display: grid;
     cursor: pointer;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: flex-end;
 
     &:nth-of-type(1) {
         background-color: var(--highlight);
@@ -22,6 +22,7 @@
         background-color: var(--text2);
     }
     header {
+        align-self: flex-end;
         order: 2;
 
         h2{
@@ -30,7 +31,18 @@
         }
     }
     p {
+        align-self: flex-start;
         color: var(--white);
         font-size: 3rem;
+    }
+    svg {
+        --size: 80px;
+        grid-row: 1/3;
+        justify-self: center;
+        align-self: center;
+
+        path {
+            fill: var(--white) !important;
+        }
     }
 }

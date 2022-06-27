@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { Link } from '@inertiajs/inertia-react'
 import route from 'ziggy-js'
-import Dash from '$/icons/dashboard.svg'
-import Menu from '$/icons/menu.svg'
 import style from './style.module.scss'
+import { useConfig } from '$/stores/config'
+import type { IconType } from 'react-icons'
 
 export default function Aside() {
     const [open, setOpen] = useState(false)
+    const icons = useConfig(({ icons }) => icons)
+    const Menu = icons['menu']
 
-    const links = [
-        ['/', 'Home', Dash],
-        [route('clients'), 'Clients', Dash],
-        [route('about'), 'About', Dash]
+    const links: [string, string, IconType][] = [
+        ['/', 'Home', icons['dash']],
+        [route('clients'), 'Clients', icons['clients']],
+        [route('about'), 'About', icons['about']]
     ]
 
     const current = (link: string) => {
