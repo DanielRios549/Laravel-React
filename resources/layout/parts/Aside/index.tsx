@@ -40,7 +40,7 @@ export default function Aside() {
                         <li className={current(link) ? style.active : ''} key={index}>
                             <Link href={link}>
                                 <Icon/>
-                                {name}
+                                <span>{name}</span>
                             </Link>
                         </li>
                     ))}
