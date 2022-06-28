@@ -11,19 +11,7 @@ class ClientController extends Controller {
     }
 
     public static function all(?String $filter) {
-        $get = [];
-
-        if (!$filter || $filter === '') {
-            $get = Client::all();
-        }
-        else {
-            $get = Client::where('name', 'ilike', "%$filter%")
-                ->orWhere('email', 'ilike', "%$filter%")
-                ->get()
-            ;
-        }
-
-        return $get;
+        return Controller::filter(Client::class, $filter);
     }
 
     public static function add(Request $request) {

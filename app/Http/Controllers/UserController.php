@@ -12,18 +12,7 @@ class UserController extends Controller {
     }
 
     public static function all(?String $filter) {
-        $get = [];
-
-        if (!$filter || $filter === '') {
-            $get = User::all();
-        }
-        else {
-            $get = User::where('name', 'ilike', "%$filter%")
-                ->orWhere('email', 'ilike', "%$filter%")
-                ->get()
-            ;
-        }
-        return $get;
+        return Controller::filter(User::class, $filter);
     }
 
     public static function check(String $id) {
