@@ -14,7 +14,7 @@ type Props = {
 }
 
 export default function NewClient(props: Props) {
-    const { error, success, form } = useConfig(({config}) => config.message)
+    const { error, success, form } = useConfig(({ config }) => config.message)
     const { url } = usePage()
 
     // Used in pages where two or more form are displayed

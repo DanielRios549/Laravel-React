@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "standard",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "globals": {
+        "React": "readonly"
+    },
+    "settings": {
+        "react/typescript": true
+    },
+    "rules": {
+        "indent": ["warn", 4],
+        "brace-style": ["warn", "stroustrup"],
+        "space-before-function-paren": "off"
+    },
+    "ignorePatterns": ["public/build/*"]
+}

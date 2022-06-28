@@ -11,9 +11,7 @@ type Props = {
 export default function Button(props: Props) {
     return (
         props.type === 'link'
-        ?
-        <Link className={style.button} href={props.link || "#"}>{props.children}</Link>
-        :
-        <button className={style.button} type={props.type} onClick={props.action}>{props.children}</button>
+            ? <Link className={style.button} href={props.link || '#'}>{props.children}</Link>
+            : <button className={style.button} type={props.type} onClick={props.action}>{props.children}</button>
     )
 }

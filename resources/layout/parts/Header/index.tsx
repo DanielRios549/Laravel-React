@@ -5,7 +5,7 @@ import { useConfig } from '$/stores/config'
 import style from './style.module.scss'
 
 export default function Header() {
-    const user = useConfig(({config}) => config.user)
+    const user = useConfig(({ config }) => config.user)
     const { title } = usePage().props as any
 
     const logout = () => {
@@ -22,5 +22,5 @@ export default function Header() {
                 <button onClick={logout}>Logout</button>
             </section>
         </header>
-    );
+    )
 }

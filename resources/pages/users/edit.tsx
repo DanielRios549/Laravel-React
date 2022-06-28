@@ -9,8 +9,7 @@ export default function EditUser(props: PageProps) {
     return (
         <Layout {...props}>
             {name
-                ?
-                <Form name="Edit User" action="/users/edit" delete={`/users/remove/${id}`}>
+                ? <Form name="Edit User" action="/users/edit" delete={`/users/remove/${id}`}>
                     <fieldset>
                         <legend><h2>User Info</h2></legend>
                         <input type="text" name="id" value={id} readOnly hidden/>
@@ -25,8 +24,7 @@ export default function EditUser(props: PageProps) {
                         <input type="password" name="password" id="password"/>
                     </fieldset>
                 </Form>
-                :
-                <span>Client Does not exists.</span>
+                : <span>Client Does not exists.</span>
             }
         </Layout>
     )

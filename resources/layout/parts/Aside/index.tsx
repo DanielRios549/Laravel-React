@@ -8,12 +8,12 @@ import type { IconType } from 'react-icons'
 export default function Aside() {
     const [open, setOpen] = useState(false)
     const icons = useConfig(({ icons }) => icons)
-    const Menu = icons['menu']
+    const Menu = icons.menu
 
     const links: [string, string, IconType][] = [
-        ['/', 'Home', icons['dash']],
-        [route('clients'), 'Clients', icons['clients']],
-        [route('about'), 'About', icons['about']]
+        ['/', 'Home', icons.dash],
+        [route('clients'), 'Clients', icons.clients],
+        [route('about'), 'About', icons.about]
     ]
 
     const current = (link: string) => {

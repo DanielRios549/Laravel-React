@@ -30,5 +30,5 @@ createInertiaApp({
                 <App {...props}/>
             </React.StrictMode>
         )
-    },
+    }
 })

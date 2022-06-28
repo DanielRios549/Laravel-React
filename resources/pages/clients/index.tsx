@@ -11,10 +11,8 @@ export default function Clients(props: PageProps) {
         <Layout {...props}>
             <ListHeader title='Clients' filter={clients?.length >= 1}/>
             {clients?.length < 1
-                ?
-                <p>No Clients</p>
-                :
-                <Table columns={['Name', 'Email']}>
+                ? <p>No Clients</p>
+                : <Table columns={['Name', 'Email']}>
                     {clients?.map(({ id, name, email }) => (
                         <tr key={id}>
                             <td><Link href={`/clients/${id}`}>{name}</Link></td>
