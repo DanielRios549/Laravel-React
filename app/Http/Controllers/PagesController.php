@@ -29,7 +29,7 @@ class PagesController extends Controller {
     }
 
     public function clients(Request $request) {
-        $param = $request::input('filter') || '';
+        $param = $request::input('filter');
         $clients = ClientController::all($param);
 
         return Inertia::render('clients', [
@@ -53,8 +53,9 @@ class PagesController extends Controller {
         ]);
     }
 
-    public function users() {
-        $users = UserController::all();
+    public function users(Request $request) {
+        $param = $request::input('filter');
+        $users = UserController::all($param);
 
         return Inertia::render('users', [
             'title' => 'List Users',

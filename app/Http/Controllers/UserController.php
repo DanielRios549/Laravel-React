@@ -11,8 +11,19 @@ class UserController extends Controller {
         return User::all()->count();
     }
 
-    public static function all() {
-        return User::all();
+    public static function all(?String $filter) {
+        $get = [];
+
+        if (!$filter || $filter === '') {
+            $get = User::all();
+        }
+        else {
+            $get = User::where('name', 'ilike', "%$filter%")
+                ->orWhere('email', 'ilike', "%$filter%")
+                ->get()
+            ;
+        }
+        return $get;
     }
 
     public static function check(String $id) {

@@ -10,15 +10,15 @@ class ClientController extends Controller {
         return Client::all()->count();
     }
 
-    public static function all(String $filter) {
+    public static function all(?String $filter) {
         $get = [];
 
-        if ($filter === '') {
+        if (!$filter || $filter === '') {
             $get = Client::all();
         }
         else {
-            $get = Client::where('name', 'like', "%$filter%")
-                ->orWhere('email', 'like', "%$filter%")
+            $get = Client::where('name', 'ilike', "%$filter%")
+                ->orWhere('email', 'ilike', "%$filter%")
                 ->get()
             ;
         }
