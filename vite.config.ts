@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => ({
             ]
         }
     },
-	plugins: [
+    plugins: [
         react(),
         svg({
             exportAsDefault: true,
@@ -34,13 +34,13 @@ export default defineConfig(({ command }) => ({
                 if (file.endsWith('.blade.php')) {
                     server.ws.send({
                         type: 'full-reload',
-                        path: '*',
-                    });
+                        path: '*'
+                    })
                 }
-            },
+            }
         }
-	],
-    base: command == 'serve' ? '' : '/build/',
+    ],
+    base: command === 'serve' ? '' : '/build/',
     publicDir: false,
     build: {
         manifest: true,
@@ -55,14 +55,14 @@ export default defineConfig(({ command }) => ({
     },
     resolve: {
         alias: {
-            '$': resolve(__dirname, 'resources')
+            $: resolve(__dirname, 'resources')
         }
     },
     optimizeDeps: {
         include: [
-          'react',
-          '@inertiajs/inertia',
-          '@inertiajs/inertia-react'
+            'react',
+            '@inertiajs/inertia',
+            '@inertiajs/inertia-react'
         ]
     }
 }))

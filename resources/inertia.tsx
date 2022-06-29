@@ -8,8 +8,6 @@ InertiaProgress.init()
 
 const app = document.getElementById('app')
 
-// TODO: Fix hot module replacement
-
 createInertiaApp({
     page: app?.dataset.component,
     resolve: async(name) => {
