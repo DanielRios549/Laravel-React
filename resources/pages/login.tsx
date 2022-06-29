@@ -1,7 +1,7 @@
 import Common from '$/layout/Common'
 import Form from '$/components/Form'
 import type { PageProps } from '$/types/page'
-import '$/styles/quest.scss'
+import '$/styles/guest.scss'
 
 export default function Login(props: PageProps) {
     return (
