@@ -46,7 +46,7 @@ export default defineConfig(({ command }) => ({
         manifest: true,
         outDir: 'public/build',
         rollupOptions: {
-            input: 'resources/main.tsx'
+            input: 'resources/inertia.tsx'
         }
     },
     server: {
