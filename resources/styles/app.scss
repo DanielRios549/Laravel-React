@@ -1,3 +1,4 @@
+@use "./custom";
 @use "./breakpoints";
 @use "./reset";
 @use "./themes";
@@ -22,10 +23,19 @@
         overflow-y: auto;
         grid-area: main;
 
+        @media (--mobile) {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
         > .cards {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+
+            @media (--mobile) {
+                justify-content: center;
+            }
         }
     }
     > aside {

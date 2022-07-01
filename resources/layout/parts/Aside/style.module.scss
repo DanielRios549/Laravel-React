@@ -1,10 +1,13 @@
-@custom-selector :--close :not(:global(.open));
-@custom-selector :--open :global(.open);
+%transition {
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+}
 
 .aside {
     background-color: var(--highlight);
     display: flex;
     flex-direction: column;
+    z-index: 13;
     $spaceLeft: 25px;
 
     @media (--mobile) {
@@ -29,10 +32,6 @@
                 button {
                     background-color: var(--highlight);
                     justify-content: flex-end;
-
-                    svg path {
-                        fill: var(--primary) !important;
-                    }
                 }
             }
             nav {
@@ -74,7 +73,7 @@
             flex-shrink: 0;
         }
         h1 {
-            color: var(--primary);
+            color: var(--white);
             text-indent: $spaceLeft;
         }
         button {
@@ -97,7 +96,7 @@
             }
             @media (--tablet) {
                 svg path {
-                    fill: var(--primary) !important;
+                    fill: var(--white) !important;
                 }
             }
         }
@@ -107,7 +106,8 @@
         justify-content: flex-start;
         flex-grow: 1;
         width: var(--menuWidth);
-        transition: width 200ms ease;
+        transition-property: width;
+        @extend %transition;
 
         @media (--tablet) {
             justify-content: center;
@@ -125,9 +125,19 @@
             width: 100%;
 
             li {
+                position: relative;
                 height: 40px;
                 width: 100%;
 
+                &::before {
+                    content: '';
+                    background-color: var(--text2);
+                    position: absolute;
+                    width: 3px;
+                    height: 0;
+                    transition-property: height;
+                    @extend %transition;
+                }
                 @media (--tablet) {
                     overflow-x: hidden;
 
@@ -138,6 +148,9 @@
                     }
                 }
                 &.active {
+                    &::before {
+                        height: 100%;
+                    }
                     a {
                         span {
                             color: var(--text2) !important;
@@ -176,12 +189,14 @@
                         flex-shrink: 0;
 
                         path {
-                            transition: fill 200ms ease;
+                            transition-property: fill;
+                            @extend %transition;
                         }
                     }
                     span {
-                        color: var(--primary);
-                        transition: color 200ms ease;
+                        color: var(--white);
+                        transition-property: color;
+                        @extend %transition;
                     }
                 }
             }

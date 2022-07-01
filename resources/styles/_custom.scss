@@ -1,0 +1,2 @@
+@custom-selector :--close :not(:global(.open));
+@custom-selector :--open :global(.open);

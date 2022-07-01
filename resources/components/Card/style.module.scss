@@ -1,4 +1,5 @@
 .card {
+    background-color: var(--back);
     border-radius: 5px;
     height: 150px;
     width: 280px;
@@ -15,29 +16,31 @@
         }
     }
     &:nth-of-type(1) {
-        background-color: var(--highlight);
+        --back: var(--highlight);
+        --color: var(--white);
     }
     &:nth-of-type(2) {
-        background-color: var(--text);
+        --back: var(--text);
+        --color: var(--secondary);
     }
     &:nth-of-type(3) {
-        background-color: var(--error);
+        --back: var(--error);
     }
     &:nth-of-type(4) {
-        background-color: var(--text2);
+        --back: var(--text2);
     }
     header {
         align-self: flex-end;
         order: 2;
 
         h2{
-            color: var(--white);
+            color: var(--color);
             text-transform: capitalize;
         }
     }
     p {
         align-self: flex-start;
-        color: var(--white);
+        color: var(--color);
         font-size: 3rem;
     }
     svg {
@@ -48,7 +51,7 @@
         transition: transform 200ms ease;
 
         path {
-            fill: var(--white) !important;
+            fill: var(--color) !important;
         }
     }
 }
