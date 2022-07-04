@@ -21,7 +21,8 @@
     }
     @media (--touch) {
         &:--close {
-            h1 {
+            h1,
+            button:not(:last-child) {
                 display: none;
             }
         }
@@ -29,7 +30,7 @@
             header {
                 background-color: var(--highlight);
 
-                button {
+                button:last-child {
                     background-color: var(--highlight);
                     justify-content: flex-end;
                 }
@@ -67,7 +68,6 @@
 
         @media (--desktop) {
             height: 60px;
-            justify-content: flex-start;
         }
         > * {
             flex-shrink: 0;
@@ -83,20 +83,22 @@
 
             svg {
                 --size: 26px;
-            }
-            @media (--desktop) {
-                display: none;
-            }
-            @media (--mobile) {
-                background-color: var(--secondary);
 
-                svg path {
-                    fill: var(--text) !important;
+                path {
+                    fill: var(--white) !important;
                 }
             }
-            @media (--tablet) {
+            @media (--desktop) {
+                &:last-child {
+                    display: none;
+                }
+            }
+            @media (--mobile) {
+                &:last-child {
+                    background-color: var(--secondary);
+                }
                 svg path {
-                    fill: var(--white) !important;
+                    fill: var(--text) !important;
                 }
             }
         }

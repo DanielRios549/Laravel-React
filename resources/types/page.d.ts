@@ -8,6 +8,7 @@ export interface AppProps {
     lang: string
     user?: User
     message: Message
+    theme: 'light' | 'dark'
 }
 
 export interface PageProps extends AppProps {
