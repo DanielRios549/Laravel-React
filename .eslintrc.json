@@ -16,6 +16,7 @@
     },
     "plugins": [
         "react",
+        "testing-library",
         "@typescript-eslint"
     ],
     "globals": {
@@ -29,5 +30,11 @@
         "brace-style": ["warn", "stroustrup"],
         "space-before-function-paren": "off"
     },
-    "ignorePatterns": ["public/build/*"]
+    "ignorePatterns": ["public/build/*"],
+    "overrides": [
+        {
+            "files": "**/?(*.)+(spec|test).[jt]s?(x)",
+            "extends": ["plugin:testing-library/react"]
+        }
+    ]
 }
