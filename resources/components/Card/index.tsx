@@ -10,12 +10,12 @@ type Props = {
 
 export default function Card({ name, children }: Props) {
     const icons = useConfig(({ icons }) => icons)
-    const Icon = icons[name]
+    const Icon = icons[name] || null
 
     return (
         <article className={style.card} onClick={() => Inertia.get(route(name))}>
             <header><h2>{name}</h2></header>
-            <Icon/>
+            {Icon && <Icon/>}
             {children}
         </article>
     )
