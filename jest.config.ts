@@ -12,7 +12,8 @@ const config: Config.InitialOptions = {
         '^.+\\.tsx?$': 'ts-jest'
     },
     moduleNameMapper: {
-        '^.+\\.module\\.(scss)$': 'identity-obj-proxy'
+        '^.+\\.module\\.(scss)$': 'identity-obj-proxy',
+        '\\$/(.*)': '<rootDir>/resources/$1'
     }
 }
 
