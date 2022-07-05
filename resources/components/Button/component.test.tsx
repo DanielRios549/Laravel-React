@@ -11,46 +11,52 @@ afterEach(() => {
 })
 
 describe('Button Component as a Link', () => {
-    const name = 'Button'
+    test('Link with URL', () => {
+        const name = 'Link'
 
-    render(
-        <Button type="link" link="/link">
-            {name}
-        </Button>
-    )
+        render(
+            <Button type="link" link="/link">
+                {name}
+            </Button>
+        )
 
-    const button = screen.getByText(name)
+        const link = screen.getByRole('link')
 
-    // console.log(button)
+        expect(link).toBeInTheDocument()
+        expect(link).toHaveTextContent(name)
+        expect(link).toHaveAttribute('href')
 
-    test('Button Rendering', () => {
-        expect(button).toBeInTheDocument()
-        expect(button).toHaveTextContent(name)
+        // TODO: Fix class assert using CSS Modules
+        // expect(link).toHaveClass('button')
     })
 
-    test('Button Attributes', () => {
-        expect(button).toHaveAttribute('href')
-        // expect(button).toHaveClass('button')
+    test('Link with no URL', () => {
+        const name = 'Empty'
+
+        render(
+            <Button type="link">
+                {name}
+            </Button>
+        )
+
+        expect(screen.getByText(name)).toHaveAttribute('href')
     })
 })
 
 describe('Button Component as a Button', () => {
-    const name = 'Button2'
+    test('Submit Button', () => {
+        const name = 'Button'
 
-    render(
-        <Button type="submit">
-            {name}
-        </Button>
-    )
+        render(
+            <Button type="submit">
+                {name}
+            </Button>
+        )
 
-    const button = screen.getByText(name)
+        const button = screen.getByRole('button')
 
-    test('Button Rendering', () => {
         expect(button).toBeInTheDocument()
         expect(button).toHaveTextContent(name)
-    })
-
-    test('Button Attributes', () => {
         expect(button).not.toHaveAttribute('href')
     })
 })
