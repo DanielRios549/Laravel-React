@@ -1,3 +1,7 @@
+<h1>
+    <img width="128px" src="https://raw.github.com/DanielRios549/MiniCRM/master/public/images/icon.png"/>
+</h1>
+
 ## About MiniCRM
 
 MiniCRM is a web application made for study, which uses the following technologies:
@@ -70,7 +74,7 @@ yarn install
 
 ## Running the project
 
-### Before initialize the Node service for the frontend application, you need to start the containers, run the command everytime you start development. If you want to see the logs, just ommit the `-d` flag and run `yarn` from other terminal window.
+### Before initialize the Node service for the frontend application, you need to start the containers, run the command everytime you start development. If you want to see the logs, just ommit the `-d` flag and run `yarn` from another terminal window.
 
 ```
 docker compose up -d
