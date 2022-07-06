@@ -1,7 +1,8 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    laravel.test:
+    laravel:
+        container_name: 'minicrm-laravel'
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
             dockerfile: Dockerfile
@@ -25,6 +26,7 @@ services:
         depends_on:
             - pgsql
     pgsql:
+        container_name: 'minicrm-pgsql'
         image: 'postgres:14'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
@@ -35,13 +37,8 @@ services:
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
             - 'sail-pgsql:/var/lib/postgresql/data'
-            - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
         networks:
             - sail
-        healthcheck:
-            test: ["CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}"]
-            retries: 3
-            timeout: 5s
 networks:
     sail:
         driver: bridge
