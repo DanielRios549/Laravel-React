@@ -17,7 +17,14 @@ MiniCRM is a web application made for study, which uses the following technologi
 
 ## Project Setup
 
-### In order to use the application, you need to setup the containers. First create them
+### In order to use the application, you need to setup the containers.
+### First open a terminal on project folder and run the command:
+
+```
+cp ./.env.example .env
+```
+
+### After create the containers.
 
 ```
 docker compose create
