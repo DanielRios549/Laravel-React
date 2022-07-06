@@ -75,7 +75,7 @@ docker compose up -d
 yarn dev
 ```
 
-### If a variable `ASSET_MODE` was either not available or be different of `dev`, you need to run build the frontend, to build run the command:
+### If a variable `ASSET_MODE` was either not available or be different from `dev`, you need to build the frontend using this command:
 
 ```
 yarn build
@@ -83,7 +83,7 @@ yarn build
 
 ## Running tests
 
-### To run the tests use the command:
+### To run frontend tests use the command:
 
 ```
 yarn test
