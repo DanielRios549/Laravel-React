@@ -12,10 +12,8 @@ afterEach(() => {
 
 describe('Card Component', () => {
     test('Card with no Icon Available', () => {
-        const name = 'card'
-
         render(
-            <Card name={name}></Card>
+            <Card name="card"></Card>
         )
 
         const element = screen.getByRole('article')
@@ -24,11 +22,9 @@ describe('Card Component', () => {
         expect(element).not.toContainHTML('svg')
     })
 
-    test('Card with Icon Avaiable', () => {
-        const name = 'users'
-
+    test('Card with Icon Available', () => {
         render(
-            <Card name={name}></Card>
+            <Card name="users"></Card>
         )
 
         const element = screen.getByRole('article')

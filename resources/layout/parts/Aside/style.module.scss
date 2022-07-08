@@ -17,6 +17,9 @@
             :global(+ main) {
                 grid-column-start: 1 !important;
             }
+            svg path {
+                fill: var(--text) !important;
+            }
         }
     }
     @media (--touch) {
@@ -96,9 +99,6 @@
             @media (--mobile) {
                 &:last-child {
                     background-color: var(--secondary);
-                }
-                svg path {
-                    fill: var(--text) !important;
                 }
             }
         }

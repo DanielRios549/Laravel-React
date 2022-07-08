@@ -11,10 +11,11 @@ type Props = {
     type?: 'add' | 'auth'
     delete?: string
     children: React.ReactNode
+    testid?: string
 }
 
-export default function NewClient(props: Props) {
-    const { error, success, form } = useConfig(({ config }) => config.message)
+export default function Form(props: Props) {
+    const { error, success, form } = useConfig(({ config }) => config.message) || {}
     const { url } = usePage()
 
     // Used in pages where two or more form are displayed
@@ -36,6 +37,7 @@ export default function NewClient(props: Props) {
 
     return (
         <form
+            data-testid={props.testid}
             className={`${props.type === 'auth' && style.auth} ${style.form}`}
             action={props.action}
             method="POST"

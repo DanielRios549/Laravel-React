@@ -1,28 +1,17 @@
 import Layout from '$/layout/Main'
 import Form from '$/components/Form'
+import UserForm from '$/forms/user'
 import type { PageProps } from '$/types/page'
 import type { User } from '$/types/user'
 
 export default function EditUser(props: PageProps) {
-    const { id, name, email } = props.data as User
+    const data = props.data as User
 
     return (
         <Layout {...props}>
-            {name
-                ? <Form name="Edit User" action="/users/edit" delete={`/users/remove/${id}`}>
-                    <fieldset>
-                        <legend><h2>User Info</h2></legend>
-                        <input type="text" name="id" value={id} readOnly hidden/>
-
-                        <label htmlFor="name">Name:</label>
-                        <input type="text" name="name" id="name" defaultValue={name}/>
-
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" name="email" id="email" defaultValue={email}/>
-
-                        <label htmlFor="email">Password:</label>
-                        <input type="password" name="password" id="password"/>
-                    </fieldset>
+            {data.name
+                ? <Form name="Edit User" action="/users/edit" delete={`/users/remove/${data.id}`}>
+                    <UserForm {...data}/>
                 </Form>
                 : <span>Client Does not exists.</span>
             }
