@@ -1,8 +1,8 @@
 import Layout from '$/layout/Main'
 import Form from '$/components/Form'
+import ClientForm from '$/forms/client'
 import type { PageProps } from '$/types/page'
 import type { Client } from '$/types/client'
-import ClientForm from '$/forms/client'
 
 export default function NewClient(props: PageProps) {
     const data = props.data as Client

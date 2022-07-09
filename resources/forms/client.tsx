@@ -1,8 +1,6 @@
 import type { Client } from '$/types/client'
 
-type Props = Partial<Client> | undefined
-
-export default function ClientForm(props: Props) {
+export default function ClientForm(props?: Partial<Client>) {
     const { id, name, email } = props || {}
 
     return (

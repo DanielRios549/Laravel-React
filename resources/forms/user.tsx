@@ -1,8 +1,6 @@
 import type { User } from '$/types/user'
 
-type Props = Partial<User> | undefined
-
-export default function UserForm(props: Props) {
+export default function UserForm(props?: Partial<User>) {
     const { id, name, email } = props || {}
 
     return (
