@@ -11,6 +11,7 @@ type Props = {
     type?: 'add' | 'auth'
     delete?: string
     children: React.ReactNode
+    submit?: (event: any) => void
     testid?: string
 }
 
@@ -41,7 +42,7 @@ export default function Form(props: Props) {
             className={`${props.type === 'auth' && style.auth} ${style.form}`}
             action={props.action}
             method="POST"
-            onSubmit={submit}>
+            onSubmit={props.submit || submit}>
 
             {(explicitForm && error) && <Message text={error} type="error"/>}
             {(explicitForm && success) && <Message text={success} type="success"/>}
