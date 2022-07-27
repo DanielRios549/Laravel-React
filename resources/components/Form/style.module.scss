@@ -6,6 +6,11 @@
     flex-wrap: wrap;
     padding: 20px;
 
+    input + span {
+        font-size: 0.9rem;
+        text-indent: 10px;
+        color: var(--error);
+    }
     &.auth {
         max-width: 350px;
         margin: 0 auto;
