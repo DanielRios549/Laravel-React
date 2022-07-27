@@ -16,7 +16,7 @@ export default function Login(props: PageProps) {
     const validate = {
         login: {
             email: Yup.string().required(error.emailRequired).email(error.emailValid),
-            password: Yup.string().required(error.passRequired).min(3, error.passValid)
+            password: Yup.string().required(error.passRequired).min(8, error.passValid)
         },
         signup: {
             name: Yup.string().required(error.nameRequired),

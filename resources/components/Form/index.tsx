@@ -1,7 +1,7 @@
 import React, { Children, useEffect, useState } from 'react'
 import { Inertia } from '@inertiajs/inertia'
 import { usePage } from '@inertiajs/inertia-react'
-import { Formik } from 'formik'
+import { Formik, FormikConfig } from 'formik'
 import * as Yup from 'yup'
 import { useConfig } from '$/stores/config'
 import Button from '$/components/Button'
@@ -15,7 +15,7 @@ type Props = {
     type?: 'add' | 'auth'
     delete?: string
     children: React.ReactNode
-    submit?: (event: any) => void
+    submit?: FormikConfig<any>['onSubmit']
     testid?: string
 }
 
@@ -36,7 +36,7 @@ export default function Form(props: Props) {
 
             elements.forEach((element) => {
                 if (element.props.defaultValue) {
-                    setValues((state: any) => ({
+                    setValues((state: object) => ({
                         ...state,
                         [element.props.id]: element.props.defaultValue
                     }))
@@ -47,12 +47,9 @@ export default function Form(props: Props) {
 
     const schema = Yup.object().shape(props.validate)
 
-    const submit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        console.log('Submit Called')
-        const data = new FormData(event.currentTarget)
-
-        Inertia.post(props.action || '', data)
+    const submit: Props['submit'] = (values, { setSubmitting }) => {
+        Inertia.post(props.action || '', values)
+        setSubmitting(false)
     }
 
     const remove = () => {
@@ -75,8 +72,8 @@ export default function Form(props: Props) {
                     method="POST"
                     onSubmit={handleSubmit}>
 
-                    {(explicitForm && error) && <Message text={error} type="error"/>}
-                    {(explicitForm && success) && <Message text={success} type="success"/>}
+                    {(!isSubmitting && explicitForm && error) && <Message text={error} type="error"/>}
+                    {(!isSubmitting && explicitForm && success) && <Message text={success} type="success"/>}
 
                     {props.children}
 
