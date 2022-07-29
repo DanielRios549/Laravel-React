@@ -35,7 +35,7 @@ export default function Form(props: Props) {
             const elements: any[] = child.props.children || []
 
             elements.forEach((element) => {
-                if (element.props.defaultValue) {
+                if (element?.props?.defaultValue) {
                     setValues((state: object) => ({
                         ...state,
                         [element.props.id]: element.props.defaultValue
