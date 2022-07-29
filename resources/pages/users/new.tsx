@@ -1,14 +1,16 @@
 import Layout from '$/layout/Main'
-import Form from '$/components/Form'
 import UserForm from '$/forms/user'
 import type { PageProps } from '$/types/page'
 
 export default function NewUser(props: PageProps) {
+    const data = {
+        name: 'Create User',
+        action: '/users/new'
+    }
+
     return (
         <Layout {...props}>
-            <Form name="Create User" action="/users/new">
-                <UserForm/>
-            </Form>
+            <UserForm {...data}/>
         </Layout>
     )
 }
