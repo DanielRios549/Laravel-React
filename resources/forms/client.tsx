@@ -12,6 +12,7 @@ interface Props {
 
 export default function ClientForm(props: Props) {
     const { id, name, email } = props?.data || {}
+    const remove = props?.delete && `${props?.delete}/${id}`
 
     const schema = {
         name: Yup.string().required('You need to choose a name'),
@@ -19,7 +20,7 @@ export default function ClientForm(props: Props) {
     }
 
     return (
-        <Form name={props.name} action={props.action} delete={`${props?.delete}/${id}`} validate={schema}>
+        <Form name={props.name} action={props.action} delete={remove} validate={schema}>
             <fieldset>
                 <legend><h2>Client Info</h2></legend>
                 {id && <input type="text" name="id" value={id} readOnly hidden/>}
