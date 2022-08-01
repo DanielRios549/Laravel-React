@@ -60,6 +60,7 @@ export default function Form(props: Props) {
 
     return (
         <Formik
+            enableReinitialize
             initialValues={values}
             validationSchema={schema}
             onSubmit={props.submit || submit}>
