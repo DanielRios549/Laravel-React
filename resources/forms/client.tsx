@@ -26,11 +26,11 @@ export default function ClientForm(props: Props) {
                 {id && <input type="text" name="id" value={id} readOnly hidden/>}
 
                 <label htmlFor="name">Name:</label>
-                <Field type="text" name="name" id="name" defaultValue={name}/>
+                <Field type="text" name="name" id="name" defaultValue={name || ''}/>
                 <ErrorMessage name="name" component="span"/>
 
                 <label htmlFor="email">Email:</label>
-                <Field type="text" name="email" id="email" defaultValue={email}/>
+                <Field type="text" name="email" id="email" defaultValue={email || ''}/>
                 <ErrorMessage name="email" component="span"/>
             </fieldset>
         </Form>

@@ -32,11 +32,11 @@ export default function Login(props: PageProps) {
                     <legend><h1>Login</h1></legend>
 
                     <label htmlFor="email">Email</label>
-                    <Field type="email" name="email" id="email"/>
+                    <Field type="email" name="email" id="email" defaultValue=""/>
                     <ErrorMessage name="email" component="span"/>
 
                     <label htmlFor="password">Password</label>
-                    <Field type="password" name="password" id="password"/>
+                    <Field type="password" name="password" id="password" defaultValue=""/>
                     <ErrorMessage name="password" component="span"/>
                 </fieldset>
             </Form>
@@ -45,15 +45,15 @@ export default function Login(props: PageProps) {
                     <legend><h1>Sign Up</h1></legend>
 
                     <label htmlFor="name">Name</label>
-                    <Field type="name" name="name" id="name"/>
+                    <Field type="name" name="name" id="name" defaultValue=""/>
                     <ErrorMessage name="name" component="span"/>
 
                     <label htmlFor="email">Email</label>
-                    <Field type="email" name="email" id="email"/>
+                    <Field type="email" name="email" id="email" defaultValue=""/>
                     <ErrorMessage name="email" component="span"/>
 
                     <label htmlFor="password">Password</label>
-                    <Field type="password" name="password" id="password"/>
+                    <Field type="password" name="password" id="password" defaultValue=""/>
                     <ErrorMessage name="password" component="span"/>
                 </fieldset>
             </Form>
